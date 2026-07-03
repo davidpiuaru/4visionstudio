@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>4visions Studio — Studio Foto & Video de Închiriat</title>
-<meta name="description" content="4visions Studio — studio foto și video de închiriat. Două camere: 90 m² și 40 m². Rezervă online.">
+<meta name="description" content="4visions Studio — studio foto de 90 m² și studio podcast de 40 m², de închiriat. Rezervă online.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Mr+Dafoe&display=swap" rel="stylesheet">
@@ -33,8 +33,8 @@
   <div class="logo big"><span class="l1">4visions</span><span class="l2">Studio</span></div>
   <p class="tag">Studio foto & video de închiriat. Două spații profesionale, lumină naturală și echipament complet — pregătite pentru viziunea ta.</p>
   <div class="stats">
-    <div><b>90 m²</b><span>Studio mare</span></div>
-    <div><b>40 m²</b><span>Camera foto</span></div>
+    <div><b>90 m²</b><span>Studio foto</span></div>
+    <div><b>40 m²</b><span>Studio podcast</span></div>
     <div><b>7 / 7</b><span>Program zilnic</span></div>
   </div>
   <div class="hero-btns">
@@ -54,12 +54,12 @@
     </div>
     <div class="rooms">
       <article class="room rev">
-        <a class="ph" href="studio-mare.html">
-          <img src="poze/spatiu-01.jpg" alt="Studio mare 90 m² — vedere de ansamblu" loading="lazy">
-          <span class="badge">Studio Mare</span>
+        <a class="ph" href="studio-foto.html">
+          <img src="poze/spatiu-01.jpg" alt="Studio foto 90 m² — vedere de ansamblu" loading="lazy">
+          <span class="badge">Studio Foto</span>
         </a>
         <div class="body">
-          <h3>Studio Mare</h3>
+          <h3>Studio Foto</h3>
           <div class="mp">90 m²</div>
           <ul>
             <li>Ideal pentru producții video, fashion & echipe mari</li>
@@ -69,29 +69,29 @@
             <li>Zonă de make-up & garderobă</li>
           </ul>
           <div class="btns">
-            <a href="studio-mare.html" class="btn solid">Vezi detalii</a>
+            <a href="studio-foto.html" class="btn solid">Vezi detalii</a>
             <a href="#rezervari" class="btn ghost" onclick="preselectRoom('mare')">Rezervă</a>
           </div>
         </div>
       </article>
       <article class="room rev">
-        <a class="ph" href="camera-foto.html">
+        <a class="ph" href="studio-podcast.html">
           <!-- ÎNLOCUIEȘTE cu poza ta: src="poze/camera-foto.jpg" -->
-          <img src="https://picsum.photos/seed/studio40/900/560" alt="Camera foto 40 m²" loading="lazy">
-          <span class="badge">Camera Foto</span>
+          <img src="https://picsum.photos/seed/studio40/900/560" alt="Studio podcast 40 m²" loading="lazy">
+          <span class="badge">Studio Podcast</span>
         </a>
         <div class="body">
-          <h3>Camera Foto</h3>
+          <h3>Studio Podcast</h3>
           <div class="mp">40 m²</div>
           <ul>
-            <li>Perfectă pentru portret, produs & conținut social media</li>
-            <li>Fundaluri din hârtie în mai multe culori</li>
-            <li>Kit de lumini flash cu modificatoare</li>
-            <li>Lumină naturală abundentă</li>
-            <li>Atmosferă intimă, ideală pentru 1-la-1</li>
+            <li>Perfect pentru podcast, interviuri & vlog</li>
+            <li>Setup pregătit — vii, te așezi și înregistrezi</li>
+            <li>Microfoane & echipament audio profesional</li>
+            <li>Lumini montate, gata de filmare</li>
+            <li>Atmosferă izolată, fără zgomot de fundal</li>
           </ul>
           <div class="btns">
-            <a href="camera-foto.html" class="btn solid">Vezi detalii</a>
+            <a href="studio-podcast.html" class="btn solid">Vezi detalii</a>
             <a href="#rezervari" class="btn ghost" onclick="preselectRoom('foto')">Rezervă</a>
           </div>
         </div>
@@ -110,40 +110,40 @@
     </div>
     <div class="filters rev" id="filters">
       <button class="active" data-f="all">Toate</button>
-      <button data-f="mare">Studio 90 m²</button>
-      <button data-f="foto">Camera 40 m²</button>
+      <button data-f="mare">Studio Foto</button>
+      <button data-f="foto">Studio Podcast</button>
     </div>
     <!-- Pozele "mare" sunt ale tale, din folderul poze/. Pentru camera de 40 m²,
          înlocuiește imaginile demo cu pozele tale: pune fișierele în poze/ și schimbă src. data-cat = "mare" sau "foto" -->
     <div class="grid" id="grid">
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-01.jpg" alt="Studio 90 m² — portret" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-02.jpg" alt="Studio 90 m² — portret fashion" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-03.jpg" alt="Studio 90 m² — portret editorial" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-04.jpg" alt="Studio 90 m² — portret alb-negru" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-05.jpg" alt="Studio 90 m² — ședință foto" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-06.jpg" alt="Studio 90 m² — decor șemineu" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-07.jpg" alt="Studio 90 m² — editorial" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-08.jpg" alt="Studio 90 m² — rochie de mireasă cu fum" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-09.jpg" alt="Studio 90 m² — rochie aurie" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-10.jpg" alt="Studio 90 m² — rochie roz cu fum" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-11.jpg" alt="Studio 90 m² — rochie roșie" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-12.jpg" alt="Studio 90 m² — behind the scenes" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-13.jpg" alt="Studio 90 m² — portret blană albă" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-14.jpg" alt="Studio 90 m² — rochie verde smarald" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-15.jpg" alt="Studio 90 m² — floarea-soarelui, fundal galben" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-16.jpg" alt="Studio 90 m² — trandafiri roșii" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-17.jpg" alt="Studio 90 m² — fundal roșu, portret elegant" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-18.jpg" alt="Studio 90 m² — editorial blană & eșarfă" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-19.jpg" alt="Studio 90 m² — portret alb-negru cu pălărie" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-20.jpg" alt="Studio 90 m² — spot circular, lumină dramatică" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-21.jpg" alt="Studio 90 m² — fundal roșu intens cu trandafiri" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-22.jpg" alt="Studio 90 m² — satin albastru, portret elegant" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-23.jpg" alt="Studio 90 m² — voal în mișcare" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-24.jpg" alt="Studio 90 m² — spot roz, portret dramatic" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="foto"><img src="https://picsum.photos/seed/4v2/640/800" alt="Camera 40 m² — 1" loading="lazy"><figcaption class="cap">Camera 40 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="foto"><img src="https://picsum.photos/seed/4v4/640/800" alt="Camera 40 m² — 2" loading="lazy"><figcaption class="cap">Camera 40 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="foto"><img src="https://picsum.photos/seed/4v6/640/800" alt="Camera 40 m² — 3" loading="lazy"><figcaption class="cap">Camera 40 m²</figcaption></figure>
-      <figure class="gitem rev" data-cat="foto"><img src="https://picsum.photos/seed/4v8/640/800" alt="Camera 40 m² — 4" loading="lazy"><figcaption class="cap">Camera 40 m²</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-01.jpg" alt="Studio Foto — portret" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-02.jpg" alt="Studio Foto — portret fashion" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-03.jpg" alt="Studio Foto — portret editorial" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-04.jpg" alt="Studio Foto — portret alb-negru" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-05.jpg" alt="Studio Foto — ședință foto" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-06.jpg" alt="Studio Foto — decor șemineu" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-07.jpg" alt="Studio Foto — editorial" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-08.jpg" alt="Studio Foto — rochie de mireasă cu fum" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-09.jpg" alt="Studio Foto — rochie aurie" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-10.jpg" alt="Studio Foto — rochie roz cu fum" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-11.jpg" alt="Studio Foto — rochie roșie" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-12.jpg" alt="Studio Foto — behind the scenes" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-13.jpg" alt="Studio Foto — portret blană albă" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-14.jpg" alt="Studio Foto — rochie verde smarald" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-15.jpg" alt="Studio Foto — floarea-soarelui, fundal galben" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-16.jpg" alt="Studio Foto — trandafiri roșii" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-17.jpg" alt="Studio Foto — fundal roșu, portret elegant" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-18.jpg" alt="Studio Foto — editorial blană & eșarfă" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-19.jpg" alt="Studio Foto — portret alb-negru cu pălărie" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-20.jpg" alt="Studio Foto — spot circular, lumină dramatică" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-21.jpg" alt="Studio Foto — fundal roșu intens cu trandafiri" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-22.jpg" alt="Studio Foto — satin albastru, portret elegant" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-23.jpg" alt="Studio Foto — voal în mișcare" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="mare"><img src="poze/mare-24.jpg" alt="Studio Foto — spot roz, portret dramatic" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
+      <figure class="gitem rev" data-cat="foto"><img src="https://picsum.photos/seed/4v2/640/800" alt="Studio Podcast — 1" loading="lazy"><figcaption class="cap">Studio Podcast</figcaption></figure>
+      <figure class="gitem rev" data-cat="foto"><img src="https://picsum.photos/seed/4v4/640/800" alt="Studio Podcast — 2" loading="lazy"><figcaption class="cap">Studio Podcast</figcaption></figure>
+      <figure class="gitem rev" data-cat="foto"><img src="https://picsum.photos/seed/4v6/640/800" alt="Studio Podcast — 3" loading="lazy"><figcaption class="cap">Studio Podcast</figcaption></figure>
+      <figure class="gitem rev" data-cat="foto"><img src="https://picsum.photos/seed/4v8/640/800" alt="Studio Podcast — 4" loading="lazy"><figcaption class="cap">Studio Podcast</figcaption></figure>
     </div>
   </div>
 </section>
@@ -166,7 +166,7 @@
     </div>
     <div class="prices">
       <div class="pcard rev">
-        <span class="name">Studio Mare — 90 m²</span>
+        <span class="name">Studio Foto — 90 m²</span>
         <h3>Producții & echipe</h3>
         <div class="price">150 lei<small> / oră</small></div>
         <hr>
@@ -178,15 +178,15 @@
         </ul>
       </div>
       <div class="pcard rev">
-        <span class="name">Camera Foto — 40 m²</span>
-        <h3>Portret & produs</h3>
+        <span class="name">Studio Podcast — 40 m²</span>
+        <h3>Podcast & interviuri</h3>
         <div class="price">100 lei<small> / oră</small></div>
         <hr>
         <ul>
           <li>Pachet 4 ore <b>360 lei</b></li>
           <li>Pachet 8 ore (zi întreagă) <b>650 lei</b></li>
           <li>Oră suplimentară weekend <b>+15 lei</b></li>
-          <li>Kit lumini & fundaluri <b>incluse</b></li>
+          <li>Echipament audio & lumini <b>incluse</b></li>
         </ul>
       </div>
     </div>
@@ -218,8 +218,8 @@
         <div class="field">
           <label for="fRoom">Camera</label>
           <select id="fRoom" required>
-            <option value="mare">Studio Mare — 90 m² (150 lei/oră)</option>
-            <option value="foto">Camera Foto — 40 m² (100 lei/oră)</option>
+            <option value="mare">Studio Foto — 90 m² (150 lei/oră)</option>
+            <option value="foto">Studio Podcast — 40 m² (100 lei/oră)</option>
           </select>
         </div>
         <div class="two">
@@ -305,7 +305,7 @@ const CONFIG = {
   oraStart: 8,                          // prima oră rezervabilă
   oraEnd:   21,                         // ultima oră de început
   preturi:  { mare: 150, foto: 100 },   // lei / oră
-  numeCamere: { mare: "Studio Mare (90 m²)", foto: "Camera Foto (40 m²)" }
+  numeCamere: { mare: "Studio Foto (90 m²)", foto: "Studio Podcast (40 m²)" }
 };
 
 /* ---------- nav mobil ---------- */
