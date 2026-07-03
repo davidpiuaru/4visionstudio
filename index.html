@@ -8,202 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Mr+Dafoe&display=swap" rel="stylesheet">
-<style>
-/* ============================================================
-   4VISIONS STUDIO — EDITEAZĂ CULORILE AICI DACĂ VREI
-   ============================================================ */
-:root{
-  --bg:#0a0a0a;
-  --bg2:#111111;
-  --bg3:#1a1a1a;
-  --text:#f5f5f5;
-  --muted:#9a9a9a;
-  --line:#2a2a2a;
-  --accent:#ffffff;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Montserrat',sans-serif;line-height:1.6;overflow-x:hidden}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-::selection{background:#fff;color:#000}
-
-/* ---------- LOGO (recreat din logoul original) ---------- */
-.logo{display:inline-flex;flex-direction:column;line-height:1;position:relative}
-.logo .l1{font-weight:900;letter-spacing:-1px;font-size:1.5rem}
-.logo .l2{font-family:'Mr Dafoe',cursive;font-size:1.15rem;align-self:flex-end;margin-top:-6px;margin-right:-4px;font-weight:400}
-.logo.big .l1{font-size:clamp(3.2rem,10vw,6.5rem);letter-spacing:-3px}
-.logo.big .l2{font-size:clamp(1.6rem,5vw,3.2rem);margin-top:-14px;margin-right:2px}
-
-/* ---------- NAV ---------- */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 5%;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{font-size:.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color .2s}
-.nav-links a:hover{color:#fff}
-.nav-cta{border:1px solid #fff;padding:9px 22px;font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:.25s}
-.nav-cta:hover{background:#fff;color:#000}
-.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
-.burger span{width:26px;height:2px;background:#fff;transition:.3s}
-.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.burger.open span:nth-child(2){opacity:0}
-.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
-/* ---------- HERO ---------- */
-.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding:120px 5% 60px;
-  background:
-    radial-gradient(ellipse 60% 45% at 50% 0%,rgba(255,255,255,.07),transparent),
-    radial-gradient(ellipse 40% 35% at 85% 90%,rgba(255,255,255,.04),transparent),
-    var(--bg)}
-.hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none}
-.hero p.tag{margin-top:28px;color:var(--muted);font-weight:300;font-size:clamp(.95rem,2.5vw,1.15rem);letter-spacing:1px;max-width:560px}
-.hero .stats{display:flex;gap:0;margin-top:44px;border:1px solid var(--line)}
-.hero .stats div{padding:16px 34px;text-align:center}
-.hero .stats div+div{border-left:1px solid var(--line)}
-.hero .stats b{display:block;font-size:1.5rem;font-weight:900}
-.hero .stats span{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
-.hero-btns{display:flex;gap:16px;margin-top:44px;flex-wrap:wrap;justify-content:center}
-.btn{display:inline-block;padding:15px 38px;font-size:.8rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;border:1px solid #fff;transition:.25s;cursor:pointer;background:none;color:#fff;font-family:inherit}
-.btn.solid{background:#fff;color:#000}
-.btn.solid:hover{background:transparent;color:#fff}
-.btn.ghost:hover{background:#fff;color:#000}
-.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.65rem;letter-spacing:3px;text-transform:uppercase;animation:float 2.2s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
-
-/* ---------- SECȚIUNI ---------- */
-section{padding:100px 5%}
-.wrap{max-width:1200px;margin:0 auto}
-.sec-head{margin-bottom:56px}
-.sec-head .kicker{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:12px}
-.sec-head h2{font-size:clamp(1.9rem,5vw,3rem);font-weight:900;letter-spacing:-1px;line-height:1.15}
-.sec-head p{color:var(--muted);margin-top:14px;max-width:600px;font-weight:300}
-
-/* ---------- CAMERE ---------- */
-.rooms{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.room{border:1px solid var(--line);background:var(--bg2);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,border-color .3s}
-.room:hover{transform:translateY(-6px);border-color:#555}
-.room .ph{aspect-ratio:16/10;overflow:hidden;position:relative}
-.room .ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(35%);transition:transform .6s,filter .6s}
-.room:hover .ph img{transform:scale(1.05);filter:grayscale(0%)}
-.room .badge{position:absolute;top:16px;left:16px;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);padding:8px 16px;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(255,255,255,.25)}
-.room .body{padding:32px;flex:1;display:flex;flex-direction:column}
-.room h3{font-size:1.5rem;font-weight:900;letter-spacing:-.5px}
-.room .mp{font-size:2.6rem;font-weight:900;color:transparent;-webkit-text-stroke:1px #666;line-height:1;margin:6px 0 18px}
-.room ul{list-style:none;margin-bottom:26px}
-.room li{padding:9px 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:.9rem;font-weight:300}
-.room li::before{content:"— ";color:#fff}
-.room .btn{margin-top:auto;text-align:center}
-
-/* ---------- GALERIE ---------- */
-#galerie{background:var(--bg2)}
-.filters{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
-.filters button{background:none;border:1px solid var(--line);color:var(--muted);padding:10px 24px;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.2s;font-family:inherit}
-.filters button.active,.filters button:hover{border-color:#fff;color:#fff}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.gitem{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:4/5;background:var(--bg3)}
-.gitem img{width:100%;height:100%;object-fit:cover;filter:grayscale(25%);transition:transform .5s,filter .5s}
-.gitem:hover img{transform:scale(1.06);filter:grayscale(0)}
-.gitem .cap{position:absolute;inset:auto 0 0 0;padding:40px 18px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:.72rem;letter-spacing:2px;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:.3s}
-.gitem:hover .cap{opacity:1;transform:translateY(0)}
-.gitem.hide{display:none}
-
-/* lightbox */
-.lb{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:200;display:none;align-items:center;justify-content:center;padding:5%}
-.lb.open{display:flex}
-.lb img{max-width:92vw;max-height:86vh;object-fit:contain}
-.lb button{position:absolute;background:none;border:1px solid #444;color:#fff;width:48px;height:48px;font-size:1.2rem;cursor:pointer;transition:.2s}
-.lb button:hover{border-color:#fff}
-.lb .x{top:22px;right:22px}
-.lb .prev{left:18px;top:50%;transform:translateY(-50%)}
-.lb .next{right:18px;top:50%;transform:translateY(-50%)}
-
-/* ---------- PREȚURI ---------- */
-.prices{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.pcard{border:1px solid var(--line);padding:44px 38px;background:var(--bg2);position:relative;transition:border-color .3s}
-.pcard:hover{border-color:#666}
-.pcard .name{font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
-.pcard h3{font-size:1.6rem;font-weight:900;margin:6px 0 4px}
-.pcard .price{font-size:3rem;font-weight:900;margin:18px 0 4px}
-.pcard .price small{font-size:1rem;font-weight:400;color:var(--muted)}
-.pcard hr{border:none;border-top:1px solid var(--line);margin:24px 0}
-.pcard ul{list-style:none}
-.pcard li{padding:8px 0;color:var(--muted);font-size:.9rem;font-weight:300;display:flex;justify-content:space-between;gap:12px}
-.pcard li b{color:#fff;font-weight:600;white-space:nowrap}
-.pnote{margin-top:26px;color:var(--muted);font-size:.85rem;font-weight:300;text-align:center}
-
-/* ---------- REZERVĂRI ---------- */
-#rezervari{background:var(--bg2)}
-.book{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-.field{margin-bottom:22px}
-.field label{display:block;font-size:.7rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-.field input,.field select,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line);color:#fff;padding:14px 16px;font-family:inherit;font-size:.95rem;transition:border-color .2s;border-radius:0;-webkit-appearance:none}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:#fff}
-.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' fill='none' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-
-/* calendar */
-.cal{border:1px solid var(--line);background:var(--bg);padding:22px}
-.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-.cal-head b{font-size:.85rem;letter-spacing:2px;text-transform:uppercase}
-.cal-head button{background:none;border:1px solid var(--line);color:#fff;width:36px;height:36px;cursor:pointer;transition:.2s;font-size:.9rem}
-.cal-head button:hover{border-color:#fff}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center}
-.cal-grid .dow{font-size:.6rem;letter-spacing:1px;color:var(--muted);text-transform:uppercase;padding:6px 0}
-.cal-grid .day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:.85rem;cursor:pointer;border:1px solid transparent;transition:.15s}
-.cal-grid .day:hover{border-color:#666}
-.cal-grid .day.off{color:#3a3a3a;cursor:default;border:none}
-.cal-grid .day.sel{background:#fff;color:#000;font-weight:700}
-.cal-grid .day.today{border-color:#555}
-.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}
-.slots button{background:none;border:1px solid var(--line);color:var(--muted);padding:10px 0;font-size:.8rem;cursor:pointer;transition:.15s;font-family:inherit}
-.slots button:hover{border-color:#fff;color:#fff}
-.slots button.sel{background:#fff;color:#000;font-weight:700;border-color:#fff}
-.summary{margin-top:22px;border:1px dashed var(--line);padding:18px;font-size:.85rem;color:var(--muted)}
-.summary b{color:#fff}
-.summary .est{font-size:1.25rem;font-weight:900;color:#fff;margin-top:6px}
-.book .btn{width:100%;margin-top:8px}
-.ok-msg{display:none;margin-top:16px;border:1px solid #2e5c34;background:#12210f;color:#9fd98f;padding:14px 18px;font-size:.85rem}
-
-/* ---------- CONTACT ---------- */
-.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.ccard{border:1px solid var(--line);padding:36px 30px;background:var(--bg2);text-align:center;transition:border-color .3s}
-.ccard:hover{border-color:#666}
-.ccard .ico{font-size:1.6rem;margin-bottom:14px}
-.ccard h4{font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-.ccard p,.ccard a{font-size:1.05rem;font-weight:600}
-.ccard small{display:block;color:var(--muted);font-weight:300;margin-top:6px}
-
-/* ---------- FOOTER ---------- */
-footer{border-top:1px solid var(--line);padding:44px 5%;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer .soc{display:flex;gap:22px}
-footer .soc a{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:.2s}
-footer .soc a:hover{color:#fff}
-footer p{color:#555;font-size:.75rem}
-
-/* fade-in la scroll */
-.rev{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}
-.rev.in{opacity:1;transform:none}
-
-/* ---------- RESPONSIVE ---------- */
-@media(max-width:900px){
-  .rooms,.prices,.book{grid-template-columns:1fr}
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .contact{grid-template-columns:1fr}
-  section{padding:72px 5%}
-}
-@media(max-width:640px){
-  .burger{display:flex}
-  .nav-links{position:fixed;top:61px;left:0;right:0;background:rgba(10,10,10,.97);backdrop-filter:blur(14px);flex-direction:column;align-items:center;gap:0;max-height:0;overflow:hidden;transition:max-height .35s;border-bottom:1px solid var(--line)}
-  .nav-links.open{max-height:420px}
-  .nav-links li{width:100%;text-align:center}
-  .nav-links a{display:block;padding:17px 0;border-top:1px solid var(--line)}
-  .nav-cta{display:none}
-  .grid{grid-template-columns:1fr}
-  .hero .stats{flex-direction:column;width:100%;max-width:340px}
-  .hero .stats div+div{border-left:none;border-top:1px solid var(--line)}
-  .slots{grid-template-columns:repeat(3,1fr)}
-  .two{grid-template-columns:1fr}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -249,10 +54,10 @@ footer p{color:#555;font-size:.75rem}
     </div>
     <div class="rooms">
       <article class="room rev">
-        <div class="ph">
+        <a class="ph" href="studio-mare.html">
           <img src="poze/spatiu-01.jpg" alt="Studio mare 90 m² — vedere de ansamblu" loading="lazy">
           <span class="badge">Studio Mare</span>
-        </div>
+        </a>
         <div class="body">
           <h3>Studio Mare</h3>
           <div class="mp">90 m²</div>
@@ -263,15 +68,18 @@ footer p{color:#555;font-size:.75rem}
             <li>Înălțime generoasă a tavanului</li>
             <li>Zonă de make-up & garderobă</li>
           </ul>
-          <a href="#rezervari" class="btn ghost" onclick="preselectRoom('mare')">Rezervă Studio Mare</a>
+          <div class="btns">
+            <a href="studio-mare.html" class="btn solid">Vezi detalii</a>
+            <a href="#rezervari" class="btn ghost" onclick="preselectRoom('mare')">Rezervă</a>
+          </div>
         </div>
       </article>
       <article class="room rev">
-        <div class="ph">
+        <a class="ph" href="camera-foto.html">
           <!-- ÎNLOCUIEȘTE cu poza ta: src="poze/camera-foto.jpg" -->
           <img src="https://picsum.photos/seed/studio40/900/560" alt="Camera foto 40 m²" loading="lazy">
           <span class="badge">Camera Foto</span>
-        </div>
+        </a>
         <div class="body">
           <h3>Camera Foto</h3>
           <div class="mp">40 m²</div>
@@ -282,7 +90,10 @@ footer p{color:#555;font-size:.75rem}
             <li>Lumină naturală abundentă</li>
             <li>Atmosferă intimă, ideală pentru 1-la-1</li>
           </ul>
-          <a href="#rezervari" class="btn ghost" onclick="preselectRoom('foto')">Rezervă Camera Foto</a>
+          <div class="btns">
+            <a href="camera-foto.html" class="btn solid">Vezi detalii</a>
+            <a href="#rezervari" class="btn ghost" onclick="preselectRoom('foto')">Rezervă</a>
+          </div>
         </div>
       </article>
     </div>
@@ -299,16 +110,12 @@ footer p{color:#555;font-size:.75rem}
     </div>
     <div class="filters rev" id="filters">
       <button class="active" data-f="all">Toate</button>
-      <button data-f="spatiu">Spațiul</button>
       <button data-f="mare">Studio 90 m²</button>
       <button data-f="foto">Camera 40 m²</button>
     </div>
     <!-- Pozele "mare" sunt ale tale, din folderul poze/. Pentru camera de 40 m²,
          înlocuiește imaginile demo cu pozele tale: pune fișierele în poze/ și schimbă src. data-cat = "mare" sau "foto" -->
     <div class="grid" id="grid">
-      <figure class="gitem rev" data-cat="spatiu"><img src="poze/spatiu-01.jpg" alt="Spațiul — studio 90 m², vedere de ansamblu" loading="lazy"><figcaption class="cap">Spațiul — vedere de ansamblu</figcaption></figure>
-      <figure class="gitem rev" data-cat="spatiu"><img src="poze/spatiu-02.jpg" alt="Spațiul — lumini Godox și modificatoare" loading="lazy"><figcaption class="cap">Spațiul — echipament</figcaption></figure>
-      <figure class="gitem rev" data-cat="spatiu"><img src="poze/spatiu-03.jpg" alt="Spațiul — fundaluri de hârtie și perete burgundy" loading="lazy"><figcaption class="cap">Spațiul — fundaluri</figcaption></figure>
       <figure class="gitem rev" data-cat="mare"><img src="poze/mare-01.jpg" alt="Studio 90 m² — portret" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
       <figure class="gitem rev" data-cat="mare"><img src="poze/mare-02.jpg" alt="Studio 90 m² — portret fashion" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
       <figure class="gitem rev" data-cat="mare"><img src="poze/mare-03.jpg" alt="Studio 90 m² — portret editorial" loading="lazy"><figcaption class="cap">Studio 90 m²</figcaption></figure>
@@ -648,6 +455,10 @@ document.getElementById('bookForm').addEventListener('submit', e => {
 /* ---------- diverse ---------- */
 document.getElementById('yr').textContent = new Date().getFullYear();
 calRender();
+
+/* preselectare cameră din URL (ex: index.html?camera=mare#rezervari) */
+const qCam = new URLSearchParams(location.search).get('camera');
+if (qCam && CONFIG.preturi[qCam]) preselectRoom(qCam);
 </script>
 </body>
 </html>
