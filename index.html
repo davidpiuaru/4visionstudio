@@ -269,21 +269,26 @@
       <div class="ccard rev">
         <div class="ico">✆</div>
         <h4>Telefon / WhatsApp</h4>
-        <a href="tel:+40700000000" id="telLink">+40 700 000 000</a>
+        <a href="tel:+40749064910" id="telLink">+40 749 064 910</a>
         <small>Luni – Duminică, 08:00 – 22:00</small>
       </div>
       <div class="ccard rev">
         <div class="ico">✉</div>
         <h4>Email</h4>
-        <a href="mailto:contact@4visionstudio.ro" id="mailLink">contact@4visionstudio.ro</a>
+        <a href="mailto:david.piuaru@gmail.com" id="mailLink">david.piuaru@gmail.com</a>
         <small>Răspundem în max. 24h</small>
       </div>
       <div class="ccard rev">
         <div class="ico">⌖</div>
         <h4>Adresă</h4>
-        <p>Str. Exemplu nr. 10</p>
-        <small>Oraș, România — parcare gratuită</small>
+        <p>Bd. Theodor Pallady 87</p>
+        <small>București, România — parcare gratuită</small>
       </div>
+    </div>
+
+    <div class="ask rev">
+      <p>Ai o întrebare despre spații, echipament sau disponibilitate?</p>
+      <a href="#" class="btn solid wa-link" data-wa-text="Bună! Am o întrebare despre 4visions Studio:">Întreabă-ne pe WhatsApp</a>
     </div>
   </div>
 </section>
@@ -299,13 +304,15 @@
   <p>© <span id="yr"></span> 4visions Studio. Toate drepturile rezervate.</p>
 </footer>
 
+<script src="wa.js"></script>
 <script>
 /* ============================================================
    CONFIGURARE — EDITEAZĂ AICI DATELE TALE
+   (numărul de WhatsApp se editează în wa.js)
    ============================================================ */
 const CONFIG = {
-  whatsapp: "40700000000",              // numărul tău, format internațional fără +
-  email:    "contact@4visionstudio.ro", // emailul tău
+  whatsapp: WA_NUMBER,                  // vine din wa.js
+  email:    "david.piuaru@gmail.com",   // emailul tău
   oraStart: 8,                          // prima oră rezervabilă
   oraEnd:   21,                         // ultima oră de început
   preturi:  { mare: 150, foto: 100 },   // lei / oră
