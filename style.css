@@ -44,6 +44,33 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
     radial-gradient(ellipse 40% 35% at 85% 90%,rgba(255,255,255,.04),transparent),
     var(--bg)}
 .hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none}
+.hero>:not(.flashes){position:relative;z-index:1}
+
+/* ---------- BLITZ-URI PE FUNDAL ---------- */
+.flashes{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.flashes span{position:absolute;width:380px;height:380px;border-radius:50%;opacity:0;
+  background:radial-gradient(circle,rgba(255,255,255,.85) 0%,rgba(255,255,255,.25) 35%,transparent 70%);
+  animation:blitz 2.2s infinite}
+/* dublu-pop scurt, ca un blitz real */
+@keyframes blitz{
+  0%,16%,100%{opacity:0}
+  3%{opacity:.9}
+  7%{opacity:.1}
+  10%{opacity:.5}
+}
+.flashes span:nth-child(1){top:-8%;left:6%;animation-delay:0s}
+.flashes span:nth-child(2){top:12%;right:-6%;width:460px;height:460px;animation-delay:.5s;animation-duration:2.6s}
+.flashes span:nth-child(3){bottom:-10%;left:-8%;width:500px;height:500px;animation-delay:.8s;animation-duration:2.3s}
+.flashes span:nth-child(4){top:38%;left:22%;width:260px;height:260px;animation-delay:1.2s;animation-duration:2.9s}
+.flashes span:nth-child(5){bottom:6%;right:14%;width:320px;height:320px;animation-delay:1.5s;animation-duration:2.4s}
+.flashes span:nth-child(6){top:-6%;left:44%;width:300px;height:300px;animation-delay:1.8s;animation-duration:3.1s}
+.flashes span:nth-child(7){top:55%;right:-4%;width:420px;height:420px;animation-delay:.2s;animation-duration:2.7s}
+.flashes span:nth-child(8){bottom:-8%;left:38%;width:360px;height:360px;animation-delay:1s;animation-duration:2.8s}
+.flashes span:nth-child(9){top:20%;left:-6%;width:340px;height:340px;animation-delay:1.4s;animation-duration:2.1s}
+.flashes span:nth-child(10){top:70%;left:55%;width:280px;height:280px;animation-delay:1.7s;animation-duration:3.3s}
+@media(max-width:900px){.flashes span{transform:scale(.7)}}
+@media(max-width:640px){.flashes span{transform:scale(.5)}}
+@media (prefers-reduced-motion:reduce){.flashes span{animation:none}}
 .hero p.tag{margin-top:28px;color:var(--muted);font-weight:300;font-size:clamp(.95rem,2.5vw,1.15rem);letter-spacing:1px;max-width:560px}
 .hero .stats{display:flex;gap:0;margin-top:44px;border:1px solid var(--line)}
 .hero .stats div{padding:16px 34px;text-align:center}
