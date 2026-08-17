@@ -42,7 +42,7 @@ function slotGol(img){ img.closest('.gitem').classList.add('slot-gol'); }
     <p class="lead">Tot ce găsești în studio, fără să aduci nimic de acasă. Echipamentul de mai jos e inclus în tariful orar — dacă ai nevoie de ceva ce nu apare în listă, întreabă-ne, e posibil să avem.</p>
     <div class="statbar">
       <div><b>9</b><span>Surse de lumină</span></div>
-      <div><b>9</b><span>Modificatoare</span></div>
+      <div><b>12</b><span>Modificatoare</span></div>
       <div><b>2</b><span>Studiouri</span></div>
     </div>
   </div>
@@ -71,7 +71,7 @@ function slotGol(img){ img.closest('.gitem').classList.add('slot-gol'); }
       </div>
     </div>
 
-    <div class="dot-block rev">
+    <div class="dot-block rev" id="lumini">
       <h3>
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5.9 1.2.9 1.9V17h5.2v-1.2c0-.7.3-1.4.9-1.9A6 6 0 0 0 12 3Z"/></svg>
         Lumini
@@ -86,7 +86,7 @@ function slotGol(img){ img.closest('.gitem').classList.add('slot-gol'); }
       </ul>
     </div>
 
-    <div class="dot-block rev">
+    <div class="dot-block rev" id="modificatoare">
       <h3>
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
         Modificatoare de lumină
@@ -104,7 +104,7 @@ function slotGol(img){ img.closest('.gitem').classList.add('slot-gol'); }
       </ul>
     </div>
 
-    <div class="dot-block rev">
+    <div class="dot-block rev" id="audio">
       <h3>
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5M8 22h8"/></svg>
         Audio
@@ -175,7 +175,7 @@ function slotGol(img){ img.closest('.gitem').classList.add('slot-gol'); }
       <p>O zi de filmare durează. Spațiul e gândit și pentru orele dintre cadre.</p>
     </div>
 
-    <div class="dot-block rev">
+    <div class="dot-block rev" id="confort">
       <h3>
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h12a3 3 0 1 0-3-3M3 16h9a3 3 0 1 1-3 3M3 12h18"/></svg>
         Confort
@@ -186,12 +186,22 @@ function slotGol(img){ img.closest('.gitem').classList.add('slot-gol'); }
         <li>Zonă pentru clienți</li>
         <li>Zonă de machiaj</li>
         <li>Aparat de călcat vertical</li>
+      </ul>
+    </div>
+
+    <div class="dot-block rev" id="acces">
+      <h3>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18"/><path d="M8.5 11 10 8.5 11.5 11M12.5 13 14 15.5 15.5 13"/></svg>
+        Acces în clădire
+      </h3>
+      <ul class="feat">
         <li>Lift & acces pentru persoane cu dizabilități</li>
+        <li>Intrare separată prin spatele clădirii</li>
       </ul>
       <p class="dot-note">Clădirea dispune de două lifturi, cu intrare prin spatele clădirii: unul de persoane și unul de marfă, cu o capacitate de 3 tone — util dacă vii cu decor sau echipament greu.</p>
     </div>
 
-    <div class="dot-block rev">
+    <div class="dot-block rev" id="garderoba">
       <h3>
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a2 2 0 1 1 2-2M12 7v2M12 9 3.5 15.5A1 1 0 0 0 4.1 17h15.8a1 1 0 0 0 .6-1.5L12 9Z"/></svg>
         Garderobă

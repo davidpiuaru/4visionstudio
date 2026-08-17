@@ -270,15 +270,18 @@ footer p{color:#555;font-size:.75rem}
 /* rezumatul de pe prima pagină (între Camere și Galerie) */
 #dotari{border-top:1px solid var(--line)}
 .dot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.dot-card{border:1px solid var(--line);background:var(--bg2);padding:30px 26px;transition:border-color .3s,transform .3s}
+.dot-card{display:block;position:relative;border:1px solid var(--line);background:var(--bg2);padding:30px 26px;transition:border-color .3s,transform .3s}
 .dot-card:hover{border-color:#555;transform:translateY(-4px)}
+/* săgeata apare la hover, ca să se vadă că e link către dotari.html */
+.dot-card::after{content:"→";position:absolute;top:28px;right:26px;color:var(--muted);opacity:0;transform:translateX(-6px);transition:opacity .3s,transform .3s}
+.dot-card:hover::after{opacity:1;transform:none}
 .dot-card h3{font-size:.95rem;font-weight:700;letter-spacing:.5px;margin:16px 0 10px}
 .dot-card p{color:var(--muted);font-size:.85rem;font-weight:300;line-height:1.6}
 .ico{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;display:block}
 .dot-more{margin-top:40px;text-align:center}
 
 /* pagina dotari.html */
-.dot-block{margin-bottom:54px}
+.dot-block{margin-bottom:54px;scroll-margin-top:96px}   /* offset pentru navul fix la salt pe ancoră */
 .dot-block:last-child{margin-bottom:0}
 .dot-block>h3{font-size:1.1rem;font-weight:900;letter-spacing:-.2px;padding-bottom:14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
 .dot-block>h3 .ico{width:19px;height:19px;flex:none}
