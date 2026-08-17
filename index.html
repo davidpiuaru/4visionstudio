@@ -268,7 +268,8 @@
         </div>
         <div class="slots" id="slots"></div>
       </div>
-      <form id="bookForm">
+      <!-- novalidate: validarea o face JS-ul, ca mesajele să fie în română și consecvente -->
+      <form id="bookForm" novalidate>
         <div class="field">
           <label for="fRoom">Camera</label>
           <select id="fRoom" required>
@@ -290,7 +291,9 @@
           </div>
           <div class="field">
             <label for="fTel">Telefon</label>
-            <input type="tel" id="fTel" placeholder="07xx xxx xxx" required>
+            <input type="tel" id="fTel" placeholder="0712 345 678" required
+                   inputmode="tel" autocomplete="tel" maxlength="20" aria-describedby="errTel">
+            <p class="err" id="errTel" hidden></p>
           </div>
         </div>
         <!-- Extra-urile apar doar la camerele care le au în secțiunea Prețuri (momentan Studio Podcast). -->
@@ -301,11 +304,15 @@
         </div>
         <div class="field">
           <label for="fName">Nume</label>
-          <input type="text" id="fName" placeholder="Numele tău" required>
+          <input type="text" id="fName" placeholder="Numele tău" required
+                 autocomplete="name" maxlength="60" aria-describedby="errName">
+          <p class="err" id="errName" hidden></p>
         </div>
         <div class="field">
-          <label for="fMsg">Detalii proiect (opțional)</label>
-          <textarea id="fMsg" rows="3" placeholder="Ex: ședință foto de produs, 2 persoane..."></textarea>
+          <label for="fMsg">Detalii proiect</label>
+          <textarea id="fMsg" rows="3" maxlength="500" required aria-describedby="errMsg"
+                    placeholder="Ex: ședință foto de produs, 2 persoane..."></textarea>
+          <p class="err" id="errMsg" hidden></p>
         </div>
         <div class="summary" id="summary">Selectează o zi și o oră din calendar.</div>
         <button type="submit" class="btn solid">Trimite rezervarea pe WhatsApp</button>
@@ -558,12 +565,87 @@ function preselectRoom(r){
   refreshDurate(); refreshExtras(); summary();
 }
 
+/* ============ VALIDARE FORMULAR ============
+   Toate câmpurile sunt obligatorii (mai puțin bifele de extra, care sunt
+   opționale prin natura lor). Mesajele apar sub câmp, în română. */
+
+function eroareBox(el){ return document.getElementById('err' + el.id.slice(1)); }
+function setErr(el, msg){
+  el.classList.add('invalid');
+  const box = eroareBox(el);
+  if (box){ box.textContent = msg; box.hidden = false; }
+}
+function clearErr(el){
+  el.classList.remove('invalid');
+  const box = eroareBox(el);
+  if (box){ box.textContent = ''; box.hidden = true; }
+}
+
+/* Telefon: mobil românesc 07xxxxxxxx (cu sau fără +40 / 0040), sau număr
+   internațional +<8–15 cifre>. Separatoarele (spații, puncte, liniuțe) se ignoră. */
+function validTelefon(raw){
+  const v = raw.trim();
+  if (!v) return 'Avem nevoie de un număr ca să te putem contacta.';
+  if (/[^\d+\s.\-()]/.test(v)) return 'Numărul poate conține doar cifre.';
+  const cifre = v.replace(/[\s.\-()]/g, '');
+  if (/^(?:\+40|0040|0)7\d{8}$/.test(cifre)) return null;   // mobil RO
+  if (/^\+\d{8,15}$/.test(cifre))            return null;   // internațional
+  return 'Număr incomplet sau invalid. Ex: 0712 345 678.';
+}
+
+function validNume(raw){
+  const v = raw.trim();
+  if (!v) return 'Spune-ne cum te cheamă.';
+  if (v.length < 2) return 'Numele pare prea scurt.';
+  if (!/\p{L}/u.test(v)) return 'Numele trebuie să conțină litere.';
+  return null;
+}
+
+function validDetalii(raw){
+  const v = raw.trim();
+  if (!v) return 'Scrie pe scurt ce vrei să filmezi — ne ajută să pregătim spațiul.';
+  if (v.length < 5) return 'Puțin mai multe detalii, te rugăm.';
+  return null;
+}
+
+const CAMPURI = [
+  { el: document.getElementById('fTel'),  check: validTelefon },
+  { el: document.getElementById('fName'), check: validNume },
+  { el: document.getElementById('fMsg'),  check: validDetalii }
+];
+
+/* La telefon, taie din mers caracterele care n-au ce căuta într-un număr. */
+document.getElementById('fTel').addEventListener('input', e => {
+  const curat = e.target.value.replace(/[^\d+\s.\-()]/g, '');
+  if (curat !== e.target.value){
+    const poz = Math.max(0, e.target.selectionStart - (e.target.value.length - curat.length));
+    e.target.value = curat;
+    e.target.setSelectionRange(poz, poz);
+  }
+});
+
+/* Eroarea dispare cum începe să corecteze; reapare la ieșirea din câmp. */
+CAMPURI.forEach(({ el, check }) => {
+  el.addEventListener('input', () => clearErr(el));
+  el.addEventListener('blur', () => { const m = check(el.value); m ? setErr(el, m) : clearErr(el); });
+});
+
 /* ---------- trimitere rezervare ---------- */
 document.getElementById('bookForm').addEventListener('submit', e => {
   e.preventDefault();
   if (!selDate || selHour === null){
     document.getElementById('summary').innerHTML = '<b style="color:#e8a0a0">⚠ Alege mai întâi ziua și ora din calendar.</b>';
     document.querySelector('.cal').scrollIntoView({ behavior:'smooth', block:'center' });
+    return;
+  }
+  let primulGresit = null;
+  CAMPURI.forEach(({ el, check }) => {
+    const m = check(el.value);
+    if (m){ setErr(el, m); primulGresit = primulGresit || el; } else clearErr(el);
+  });
+  if (primulGresit){
+    primulGresit.scrollIntoView({ behavior:'smooth', block:'center' });
+    primulGresit.focus({ preventScroll:true });
     return;
   }
   const room = document.getElementById('fRoom').value;
@@ -584,8 +666,8 @@ document.getElementById('bookForm').addEventListener('submit', e => {
 • ${x.eticheta.charAt(0).toUpperCase() + x.eticheta.slice(1)}: ${x.total === null ? 'cere ofertă' : lei(x.total) + ' lei'}`).join('')}
 • Preț estimat: ${lei(total)} lei
 • Nume: ${nume}
-• Telefon: ${tel}${msg ? `
-• Detalii: ${msg}` : ''}`;
+• Telefon: ${tel}
+• Detalii: ${msg}`;
   window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
   document.getElementById('okMsg').style.display = 'block';
 });
