@@ -9,6 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Mr+Dafoe&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>
+/* Marchează sloturile de poză care încă n-au fișier în poze/.
+   Trebuie definită înainte de imagini, ca onerror să o găsească. */
+function slotGol(img){ img.closest('.gitem').classList.add('slot-gol'); }
+</script>
 </head>
 <body>
 
@@ -50,10 +55,16 @@
       <h2>Spațiul</h2>
       <p>Studioul, așa cum îl găsești la sosire — echipat și pregătit de lucru.</p>
     </div>
+    <!-- 6 sloturi pentru poze cu spațiul. Ca să umpli un slot gol, pune fișierul
+         în poze/ cu exact numele din src (spatiu-04.jpg, spatiu-05.jpg, spatiu-06.jpg)
+         — nu trebuie modificat nimic aici. Slotul fără fișier se afișează ca „poză în curând". -->
     <div class="space-grid rev" id="spaceGrid">
-      <figure class="gitem"><img src="poze/spatiu-01.jpg" alt="Studio Foto — vedere de ansamblu" loading="lazy"><figcaption class="cap">Vedere de ansamblu</figcaption></figure>
-      <figure class="gitem"><img src="poze/spatiu-02.jpg" alt="Studio Foto — lumini Godox și modificatoare" loading="lazy"><figcaption class="cap">Lumini & modificatoare</figcaption></figure>
-      <figure class="gitem"><img src="poze/spatiu-03.jpg" alt="Studio Foto — fundaluri de hârtie și perete burgundy" loading="lazy"><figcaption class="cap">Fundaluri & perete burgundy</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-01.jpg" alt="Studio Foto — vedere de ansamblu" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Vedere de ansamblu</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-02.jpg" alt="Studio Foto — lumini Godox și modificatoare" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Lumini & modificatoare</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-03.jpg" alt="Studio Foto — fundaluri de hârtie și perete burgundy" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Fundaluri & perete burgundy</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-04.jpg" alt="Studio Foto — zonă de cafea și canapele" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Poză în curând</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-05.jpg" alt="Studio Foto — zonă de makeup și cabină de schimb" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Poză în curând</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-06.jpg" alt="Studio Foto — înălțime de 5 metri" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Poză în curând</figcaption></figure>
     </div>
     <div class="sec-head rev" style="margin-top:64px;margin-bottom:0">
       <span class="kicker">Dotări</span>
@@ -152,18 +163,22 @@ const io = new IntersectionObserver(es => es.forEach(e => {
 document.querySelectorAll('.rev').forEach(el => io.observe(el));
 
 /* ---------- lightbox (spațiu + galerie) ---------- */
-const items = [...document.querySelectorAll('.gitem')];
+const allItems = [...document.querySelectorAll('.gitem')];
+const items = () => allItems.filter(it => !it.classList.contains('slot-gol'));
 let lbIdx = 0;
 const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg');
-items.forEach(it => it.addEventListener('click', () => {
-  lbIdx = items.indexOf(it);
+allItems.forEach(it => it.addEventListener('click', () => {
+  if (it.classList.contains('slot-gol')) return;   // slot fără poză, nu deschide lightbox
+  lbIdx = items().indexOf(it);
   lbImg.src = it.querySelector('img').src;
   lb.classList.add('open');
 }));
 function lbClose(){ lb.classList.remove('open'); }
 function lbNav(d){
-  lbIdx = (lbIdx + d + items.length) % items.length;
-  lbImg.src = items[lbIdx].querySelector('img').src;
+  const list = items();
+  if (!list.length) return;
+  lbIdx = (lbIdx + d + list.length) % list.length;
+  lbImg.src = list[lbIdx].querySelector('img').src;
 }
 lb.addEventListener('click', e => { if (e.target === lb) lbClose(); });
 document.addEventListener('keydown', e => {
