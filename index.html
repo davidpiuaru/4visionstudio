@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>4visions Studio — Studio Foto & Video de Închiriat</title>
-<meta name="description" content="4visions Studio — studio foto de 90 m² și studio podcast de 40 m², de închiriat. Rezervă online.">
+<meta name="description" content="4visions Studio — studio foto de 90 m² și studio podcast de 35 m², de închiriat. Rezervă online.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Mr+Dafoe&display=swap" rel="stylesheet">
@@ -35,10 +35,10 @@
     <span></span><span></span><span></span><span></span><span></span>
   </div>
   <div class="logo big"><span class="l1">4visions</span><span class="l2">Studio</span></div>
-  <p class="tag">Studio foto & video de închiriat. Două spații profesionale, lumină naturală și echipament complet — pregătite pentru viziunea ta.</p>
+  <p class="tag">Studio foto & video de închiriat. Două spații profesionale, lumină naturală și echipament complet, pregătite pentru viziunea ta.</p>
   <div class="stats">
     <div><b>90 m²</b><span>Studio foto</span></div>
-    <div><b>40 m²</b><span>Studio podcast</span></div>
+    <div><b>35 m²</b><span>Studio podcast</span></div>
     <div><b>7 / 7</b><span>Program zilnic</span></div>
   </div>
   <div class="hero-btns">
@@ -81,12 +81,12 @@
       <article class="room rev">
         <a class="ph" href="studio-podcast.html">
           <!-- ÎNLOCUIEȘTE cu poza ta: src="poze/camera-foto.jpg" -->
-          <img src="https://picsum.photos/seed/studio40/900/560" alt="Studio podcast 40 m²" loading="lazy">
+          <img src="https://picsum.photos/seed/studio40/900/560" alt="Studio podcast 35 m²" loading="lazy">
           <span class="badge">Studio Podcast</span>
         </a>
         <div class="body">
           <h3>Studio Podcast</h3>
-          <div class="mp">40 m²</div>
+          <div class="mp">35 m²</div>
           <ul>
             <li>Perfect pentru podcast, interviuri & vlog</li>
             <li>Setup pregătit — vii, te așezi și înregistrezi</li>
@@ -117,7 +117,7 @@
       <button data-f="mare">Studio Foto</button>
       <button data-f="foto">Studio Podcast</button>
     </div>
-    <!-- Pozele "mare" sunt ale tale, din folderul poze/. Pentru camera de 40 m²,
+    <!-- Pozele "mare" sunt ale tale, din folderul poze/. Pentru camera de 35 m²,
          înlocuiește imaginile demo cu pozele tale: pune fișierele în poze/ și schimbă src. data-cat = "mare" sau "foto" -->
     <div class="grid" id="grid">
       <figure class="gitem rev" data-cat="mare"><img src="poze/mare-01.jpg" alt="Studio Foto — portret" loading="lazy"><figcaption class="cap">Studio Foto</figcaption></figure>
@@ -172,24 +172,24 @@
       <div class="pcard rev">
         <span class="name">Studio Foto — 90 m²</span>
         <h3>Producții & echipe</h3>
-        <div class="price">150 lei<small> / oră</small></div>
+        <div class="price">200 lei<small> / oră</small></div>
         <hr>
         <ul>
-          <li>Pachet 4 ore <b>550 lei</b></li>
-          <li>Pachet 8 ore (zi întreagă) <b>1.000 lei</b></li>
-          <li>Oră suplimentară weekend <b>+20 lei</b></li>
+          <li>Pachet 4 ore <b>650 lei</b></li>
+          <li>Pachet 8 ore (zi întreagă) <b>1.200 lei</b></li>
           <li>Lumini & cicloramă <b>incluse</b></li>
         </ul>
       </div>
       <div class="pcard rev">
-        <span class="name">Studio Podcast — 40 m²</span>
+        <span class="name">Studio Podcast — 35 m²</span>
         <h3>Podcast & interviuri</h3>
-        <div class="price">100 lei<small> / oră</small></div>
+        <div class="price">250 lei<small> / oră</small></div>
         <hr>
         <ul>
-          <li>Pachet 4 ore <b>360 lei</b></li>
-          <li>Pachet 8 ore (zi întreagă) <b>650 lei</b></li>
-          <li>Oră suplimentară weekend <b>+15 lei</b></li>
+          <li>Pachet 4 ore <b>750 lei</b></li>
+          <li>Pachet 8 ore (zi întreagă) <b>1.500 lei</b></li>
+          <li>Operator + camere <b>300 lei / oră</b></li>
+          <li>Editare <b>cere ofertă</b></li>
           <li>Echipament audio & lumini <b>incluse</b></li>
         </ul>
       </div>
@@ -222,8 +222,8 @@
         <div class="field">
           <label for="fRoom">Camera</label>
           <select id="fRoom" required>
-            <option value="mare">Studio Foto — 90 m² (150 lei/oră)</option>
-            <option value="foto">Studio Podcast — 40 m² (100 lei/oră)</option>
+            <option value="mare">Studio Foto — 90 m² (200 lei/oră)</option>
+            <option value="foto">Studio Podcast — 35 m² (250 lei/oră)</option>
           </select>
         </div>
         <div class="two">
@@ -315,8 +315,8 @@ const CONFIG = {
   email:    "david.piuaru@gmail.com",   // emailul tău
   oraStart: 8,                          // prima oră rezervabilă
   oraEnd:   21,                         // ultima oră de început
-  preturi:  { mare: 150, foto: 100 },   // lei / oră
-  numeCamere: { mare: "Studio Foto (90 m²)", foto: "Studio Podcast (40 m²)" }
+  preturi:  { mare: 200, foto: 250 },   // lei / oră
+  numeCamere: { mare: "Studio Foto (90 m²)", foto: "Studio Podcast (35 m²)" }
 };
 
 /* ---------- nav mobil ---------- */
