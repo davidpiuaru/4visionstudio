@@ -279,6 +279,7 @@
         <div class="two">
           <div class="field">
             <label for="fDur">Durată</label>
+            <!-- Etichetele cu preț sunt scrise de refreshDurate(), în funcție de camera aleasă. -->
             <select id="fDur">
               <option value="1">1 oră</option>
               <option value="2" selected>2 ore</option>
@@ -291,6 +292,12 @@
             <label for="fTel">Telefon</label>
             <input type="tel" id="fTel" placeholder="07xx xxx xxx" required>
           </div>
+        </div>
+        <!-- Extra-urile apar doar la camerele care le au în secțiunea Prețuri (momentan Studio Podcast). -->
+        <div class="field" id="extras" hidden>
+          <label>Extra (opțional)</label>
+          <label class="chk"><input type="checkbox" id="fOperator"><span>Operator + camere — 300 lei / oră</span></label>
+          <label class="chk"><input type="checkbox" id="fEditare"><span>Editare — cere ofertă</span></label>
         </div>
         <div class="field">
           <label for="fName">Nume</label>
@@ -365,9 +372,36 @@ const CONFIG = {
   email:    "david.piuaru@gmail.com",   // emailul tău
   oraStart: 8,                          // prima oră rezervabilă
   oraEnd:   21,                         // ultima oră de început
-  preturi:  { mare: 200, foto: 250 },   // lei / oră
+  /* Tarifele trebuie să rămână identice cu secțiunea Prețuri de mai sus.
+     ora     = tarif orar; pachete = preț fix pentru durata respectivă (bate tariful orar);
+     operator = extra opțional, lei / oră; editare = extra fără preț („cere ofertă"). */
+  tarife: {
+    mare: { ora: 200, pachete: { 4: 650,  8: 1200 } },
+    foto: { ora: 250, pachete: { 4: 750,  8: 1500 }, operator: 300, editare: true }
+  },
   numeCamere: { mare: "Studio Foto (90 m²)", foto: "Studio Podcast (35 m²)" }
 };
+
+const lei = n => n.toLocaleString('ro-RO');
+
+/* Prețul camerei, exact după grila din secțiunea Prețuri:
+   dacă durata are pachet, se folosește pachetul; altfel ore × tarif orar. */
+function costCamera(room, dur){
+  const t = CONFIG.tarife[room];
+  return t.pachete[dur] !== undefined
+    ? { total: t.pachete[dur], detaliu: `pachet ${dur} ore` }
+    : { total: t.ora * dur,    detaliu: `${dur}h × ${lei(t.ora)} lei` };
+}
+
+/* Extra-urile bifate, cu costul lor. Editarea nu are preț — se cere ofertă. */
+function costExtra(room, dur){
+  const t = CONFIG.tarife[room], out = [];
+  if (t.operator && document.getElementById('fOperator').checked)
+    out.push({ eticheta: `operator + camere (${dur}h × ${lei(t.operator)} lei)`, total: t.operator * dur });
+  if (t.editare && document.getElementById('fEditare').checked)
+    out.push({ eticheta: 'editare', total: null });
+  return out;
+}
 
 /* ---------- nav mobil ---------- */
 const burger = document.getElementById('burger');
@@ -467,24 +501,62 @@ function pickHour(h){ selHour = h; slotsRender(); summary(); }
 function fmtDate(d){
   return d.toLocaleDateString('ro-RO', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
 }
+/* Scrie prețul rezultat în dreptul fiecărei durate, pentru camera aleasă. */
+function refreshDurate(){
+  const room = document.getElementById('fRoom').value;
+  document.querySelectorAll('#fDur option').forEach(o => {
+    const d = +o.value;
+    const baza = d === 8 ? '8 ore (zi întreagă)'
+               : d === 4 ? '4 ore (pachet)'
+               : `${d} ${d === 1 ? 'oră' : 'ore'}`;
+    o.textContent = `${baza} — ${lei(costCamera(room, d).total)} lei`;
+  });
+}
+
+/* Extra-urile se arată doar la camerele care le au în grila de prețuri. */
+function refreshExtras(){
+  const t = CONFIG.tarife[document.getElementById('fRoom').value];
+  const box = document.getElementById('extras');
+  box.hidden = !(t.operator || t.editare);
+  if (box.hidden){
+    document.getElementById('fOperator').checked = false;
+    document.getElementById('fEditare').checked  = false;
+  }
+}
+
 function summary(){
   const el = document.getElementById('summary');
   if (!selDate){ el.innerHTML = 'Selectează o zi și o oră din calendar.'; return; }
   const room = document.getElementById('fRoom').value;
-  const dur = +document.getElementById('fDur').value;
-  const pret = CONFIG.preturi[room] * dur;
+  const dur  = +document.getElementById('fDur').value;
+
+  const camera = costCamera(room, dur);
+  const extra  = costExtra(room, dur);
+  const total  = camera.total + extra.reduce((s, x) => s + (x.total || 0), 0);
+  const oferta = extra.some(x => x.total === null);
+
   let txt = `<b>${CONFIG.numeCamere[room]}</b><br>${fmtDate(selDate)}`;
   if (selHour !== null){
     const end = selHour + dur;
     txt += `, <b>${String(selHour).padStart(2,'0')}:00 – ${String(end).padStart(2,'0')}:00</b>`;
   } else { txt += ` — <i>alege ora</i>`; }
-  txt += `<div class="est">≈ ${pret} lei <small style="font-weight:400;color:var(--muted)">(${dur}h × ${CONFIG.preturi[room]} lei)</small></div>`;
+
+  txt += `<div class="est">≈ ${lei(total)} lei${oferta ? ' <small style="font-weight:400;color:var(--muted)">+ ofertă editare</small>' : ''}</div>`;
+  const linii = [`${camera.detaliu} — <b>${lei(camera.total)} lei</b>`]
+    .concat(extra.map(x => `${x.eticheta} — <b>${x.total === null ? 'cere ofertă' : lei(x.total) + ' lei'}</b>`));
+  txt += `<div class="est-detail">${linii.join('<br>')}<br>cafea și apă incluse</div>`;
   el.innerHTML = txt;
 }
-document.getElementById('fRoom').addEventListener('change', summary);
-document.getElementById('fDur').addEventListener('change', summary);
 
-function preselectRoom(r){ document.getElementById('fRoom').value = r; summary(); }
+document.getElementById('fRoom').addEventListener('change', () => { refreshDurate(); refreshExtras(); summary(); });
+document.getElementById('fDur').addEventListener('change', summary);
+document.getElementById('fOperator').addEventListener('change', summary);
+document.getElementById('fEditare').addEventListener('change', summary);
+
+function preselectRoom(r){
+  document.getElementById('fRoom').value = r;
+  refreshDurate(); refreshExtras(); summary();
+}
 
 /* ---------- trimitere rezervare ---------- */
 document.getElementById('bookForm').addEventListener('submit', e => {
@@ -500,12 +572,17 @@ document.getElementById('bookForm').addEventListener('submit', e => {
   const tel  = document.getElementById('fTel').value.trim();
   const msg  = document.getElementById('fMsg').value.trim();
   const end  = selHour + dur;
+  const camera = costCamera(room, dur);
+  const extra  = costExtra(room, dur);
+  const total  = camera.total + extra.reduce((s, x) => s + (x.total || 0), 0);
   const text =
 `Bună! Doresc o rezervare la 4visions Studio:
 • Camera: ${CONFIG.numeCamere[room]}
 • Data: ${fmtDate(selDate)}
 • Interval: ${String(selHour).padStart(2,'0')}:00 – ${String(end).padStart(2,'0')}:00 (${dur}h)
-• Preț estimat: ${CONFIG.preturi[room]*dur} lei
+• Tarif: ${camera.detaliu} — ${lei(camera.total)} lei${extra.map(x => `
+• ${x.eticheta.charAt(0).toUpperCase() + x.eticheta.slice(1)}: ${x.total === null ? 'cere ofertă' : lei(x.total) + ' lei'}`).join('')}
+• Preț estimat: ${lei(total)} lei
 • Nume: ${nume}
 • Telefon: ${tel}${msg ? `
 • Detalii: ${msg}` : ''}`;
@@ -516,10 +593,12 @@ document.getElementById('bookForm').addEventListener('submit', e => {
 /* ---------- diverse ---------- */
 document.getElementById('yr').textContent = new Date().getFullYear();
 calRender();
+refreshDurate();
+refreshExtras();
 
 /* preselectare cameră din URL (ex: index.html?camera=mare#rezervari) */
 const qCam = new URLSearchParams(location.search).get('camera');
-if (qCam && CONFIG.preturi[qCam]) preselectRoom(qCam);
+if (qCam && CONFIG.tarife[qCam]) preselectRoom(qCam);
 </script>
 </body>
 </html>

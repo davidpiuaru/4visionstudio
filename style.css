@@ -173,9 +173,18 @@ section{padding:100px 5%}
 .slots button{background:none;border:1px solid var(--line);color:var(--muted);padding:10px 0;font-size:.8rem;cursor:pointer;transition:.15s;font-family:inherit}
 .slots button:hover{border-color:#fff;color:#fff}
 .slots button.sel{background:#fff;color:#000;font-weight:700;border-color:#fff}
+/* bife pentru extra-uri (operator, editare) */
+.field .chk{display:flex;align-items:center;gap:10px;margin-bottom:10px;cursor:pointer;
+  font-size:.85rem;font-weight:300;letter-spacing:0;text-transform:none;color:var(--muted)}
+.field .chk:last-child{margin-bottom:0}
+.field .chk:hover{color:#fff}
+.field .chk input{width:16px;height:16px;flex:none;padding:0;margin:0;border:none;background:none;
+  appearance:auto;-webkit-appearance:checkbox;accent-color:#fff;cursor:pointer}
 .summary{margin-top:22px;border:1px dashed var(--line);padding:18px;font-size:.85rem;color:var(--muted)}
 .summary b{color:#fff}
 .summary .est{font-size:1.25rem;font-weight:900;color:#fff;margin-top:6px}
+.summary .est-detail{margin-top:8px;font-size:.78rem;line-height:1.75}
+.summary .est-detail b{font-weight:600}
 .book .btn{width:100%;margin-top:8px}
 .ok-msg{display:none;margin-top:16px;border:1px solid #2e5c34;background:#12210f;color:#9fd98f;padding:14px 18px;font-size:.85rem}
 
