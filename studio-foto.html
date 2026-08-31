@@ -56,16 +56,36 @@ function slotGol(img){ img.closest('.gitem').classList.add('slot-gol'); }
       <h2>Spațiul</h2>
       <p>Studioul, așa cum îl găsești la sosire — echipat și pregătit de lucru.</p>
     </div>
-    <!-- 6 sloturi pentru poze cu spațiul. Ca să umpli un slot gol, pune fișierul
-         în poze/ cu exact numele din src (spatiu-04.jpg, spatiu-05.jpg, spatiu-06.jpg)
-         — nu trebuie modificat nimic aici. Slotul fără fișier se afișează ca „poză în curând". -->
+    <!-- Pozele cu spațiul, în ordinea în care se vede studioul la fața locului.
+         Clasa „wide" e pentru pozele orizontale — ocupă două coloane din grilă.
+         Ca să schimbi o poză, înlocuiește fișierul din poze/ cu același nume. -->
     <div class="space-grid rev" id="spaceGrid">
-      <figure class="gitem"><img src="poze/spatiu-01.jpg" alt="Studio Foto — vedere de ansamblu" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Vedere de ansamblu</figcaption></figure>
-      <figure class="gitem"><img src="poze/spatiu-02.jpg" alt="Studio Foto — lumini Godox și modificatoare" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Lumini & modificatoare</figcaption></figure>
-      <figure class="gitem"><img src="poze/spatiu-03.jpg" alt="Studio Foto — fundaluri de hârtie și perete burgundy" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Fundaluri & perete burgundy</figcaption></figure>
-      <figure class="gitem"><img src="poze/spatiu-04.jpg" alt="Studio Foto — zonă de cafea și canapele" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Poză în curând</figcaption></figure>
-      <figure class="gitem"><img src="poze/spatiu-05.jpg" alt="Studio Foto — zonă de makeup și cabină de schimb" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Poză în curând</figcaption></figure>
-      <figure class="gitem"><img src="poze/spatiu-06.jpg" alt="Studio Foto — înălțime de 5 metri" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Poză în curând</figcaption></figure>
+      <figure class="gitem wide"><img src="poze/spatiu-01.jpg" alt="Studio Foto — vedere de ansamblu, cu lumină naturală și fundaluri de hârtie" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Vedere de ansamblu</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-02.jpg" alt="Studio Foto — fundaluri de hârtie și lumini Godox" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Fundaluri de hârtie</figcaption></figure>
+      <figure class="gitem wide"><img src="poze/spatiu-03.jpg" alt="Studio Foto — stripbox-uri cu grid, beauty dish și role de fundal" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Lumini & modificatoare</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-04.jpg" alt="Studio Foto — colțul cu fundaluri de hârtie și aer condiționat" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Colțul de fundaluri</figcaption></figure>
+      <figure class="gitem wide"><img src="poze/spatiu-05.jpg" alt="Studio Foto — spațiul de lucru văzut spre peretele burgundy" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Spațiul de lucru</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-06.jpg" alt="Studio Foto — perete burgundy cu scaune și cub foto" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Perete burgundy</figcaption></figure>
+      <figure class="gitem wide"><img src="poze/spatiu-07.jpg" alt="Studio Foto — umbrelă parabolică și beauty dish pregătite de ședință" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Lumini pregătite</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-08.jpg" alt="Studio Foto — cărucior de platou, stative și c-stand" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Cărucior de platou</figcaption></figure>
+      <figure class="gitem wide"><img src="poze/spatiu-09.jpg" alt="Studio Foto — umbrelă parabolică, beauty dish și stripbox-uri cu grid" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Umbrelă & beauty dish</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-10.jpg" alt="Studio Foto — monitor de platou pe căruciorul de lucru" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Monitor de platou</figcaption></figure>
+      <figure class="gitem wide"><img src="poze/spatiu-11.jpg" alt="Studio Foto — stripbox-uri cu grid și stative pe fundal negru" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Stripbox-uri cu grid</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-12.jpg" alt="Studio Foto — setup de lumini pe fundal negru" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Setup de lumini</figcaption></figure>
+      <figure class="gitem wide"><img src="poze/spatiu-13.jpg" alt="Studio Foto — căruciorul de platou și bateria de lumini" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Platou pregătit</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-14.jpg" alt="Studio Foto — detaliu de platou: obiectiv și monitor" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Detaliu de platou</figcaption></figure>
+      <figure class="gitem wide"><img src="poze/spatiu-15.jpg" alt="Studio Foto — perete verde cu lambriuri, canapea de catifea și role de fundal" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Perete verde</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-16.jpg" alt="Studio Foto — role de fundal colorate și oglindă full-body" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Role de fundal</figcaption></figure>
+      <figure class="gitem wide"><img src="poze/spatiu-17.jpg" alt="Studio Foto — neon ON AIR între boxe" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Neon ON AIR</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-18.jpg" alt="Studio Foto — decorul cu perete verde și canapea de catifea" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Decor perete verde</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-19.jpg" alt="Studio Foto — oglindă mare de probă cu reflexia platoului" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Oglindă de probă</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-20.jpg" alt="Studio Foto — zona de cafea, cu espressor și apă" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Zona de cafea</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-21.jpg" alt="Studio Foto — espressor și pahare de cafea" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Cafea inclusă</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-22.jpg" alt="Studio Foto — raft cu aparate foto de colecție lângă zona de cafea" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Raft de colecție</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-23.jpg" alt="Studio Foto — plăcuță decorativă în zona de cafea" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Detaliu</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-24.jpg" alt="Studio Foto — zona de relaxare cu canapea, măsuță și lampă" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Zonă de relaxare</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-25.jpg" alt="Studio Foto — zona pentru clienți, cu printuri pe perete" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Zonă pentru clienți</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-26.jpg" alt="Studio Foto — măsuță cu albume foto lângă canapea" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Albume foto</figcaption></figure>
     </div>
     <div class="sec-head rev" style="margin-top:64px;margin-bottom:0">
       <span class="kicker">Dotări</span>

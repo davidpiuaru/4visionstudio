@@ -56,16 +56,16 @@ function slotGol(img){ img.closest('.gitem').classList.add('slot-gol'); }
       <h2>Spațiul</h2>
       <p>Studioul, așa cum îl găsești la sosire — setup montat și pregătit de înregistrare.</p>
     </div>
-    <!-- 6 sloturi pentru poze cu spațiul de 35 m². Ca să umpli un slot, pune fișierul
-         în poze/ cu exact numele din src (spatiu-podcast-01.jpg … spatiu-podcast-06.jpg)
-         — nu trebuie modificat nimic aici. Slotul fără fișier se afișează ca „poză în curând". -->
+    <!-- Pozele cu spațiul de 35 m². Ca să schimbi una, înlocuiește fișierul din
+         poze/ cu același nume (spatiu-podcast-01.jpg … spatiu-podcast-07.jpg). -->
     <div class="space-grid rev" id="spaceGrid">
-      <figure class="gitem"><img src="poze/spatiu-podcast-01.jpg" alt="Studio Podcast — vedere de ansamblu" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Poză în curând</figcaption></figure>
-      <figure class="gitem"><img src="poze/spatiu-podcast-02.jpg" alt="Studio Podcast — microfoane și echipament audio" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Poză în curând</figcaption></figure>
-      <figure class="gitem"><img src="poze/spatiu-podcast-03.jpg" alt="Studio Podcast — lumini montate" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Poză în curând</figcaption></figure>
-      <figure class="gitem"><img src="poze/spatiu-podcast-04.jpg" alt="Studio Podcast — masă și scaune pentru invitați" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Poză în curând</figcaption></figure>
-      <figure class="gitem"><img src="poze/spatiu-podcast-05.jpg" alt="Studio Podcast — decor pentru cadru video" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Poză în curând</figcaption></figure>
-      <figure class="gitem"><img src="poze/spatiu-podcast-06.jpg" alt="Studio Podcast — zonă de make-up și garderobă" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Poză în curând</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-podcast-01.jpg" alt="Studio Podcast — fotolii de piele și panouri acustice iluminate" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Setul de podcast</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-podcast-02.jpg" alt="Studio Podcast — fotolii, chitară și panouri acustice pe perete" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Fotolii & panouri acustice</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-podcast-03.jpg" alt="Studio Podcast — softbox Godox montat și scaun de bar" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Lumini montate</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-podcast-04.jpg" alt="Studio Podcast — perete negru cu ramă luminoasă și scaun de lemn" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Decor iluminat</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-podcast-05.jpg" alt="Studio Podcast — fotoliu de piele, lampă de podea și candelabru de rattan" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Colț de filmare</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-podcast-06.jpg" alt="Studio Podcast — fotoliu de piele lângă draperia de catifea" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Draperii & lumină caldă</figcaption></figure>
+      <figure class="gitem"><img src="poze/spatiu-podcast-07.jpg" alt="Studio Podcast — fotoliu de invitat cu lampă disc" loading="lazy" onerror="slotGol(this)"><figcaption class="cap">Fotoliu de invitat</figcaption></figure>
     </div>
     <div class="sec-head rev" style="margin-top:64px;margin-bottom:0">
       <span class="kicker">Dotări</span>
@@ -88,14 +88,13 @@ function slotGol(img){ img.closest('.gitem').classList.add('slot-gol'); }
     <div class="sec-head rev">
       <span class="kicker">Portofoliu</span>
       <h2>Realizate în Studio Podcast</h2>
-      <p>O selecție de episoade și cadre filmate în acest spațiu.</p>
+      <p>O selecție de cadre fotografiate în acest spațiu.</p>
     </div>
-    <!-- ÎNLOCUIEȘTE imaginile demo cu pozele tale reale -->
     <div class="grid" id="grid">
-      <figure class="gitem rev"><img src="https://picsum.photos/seed/4v2/640/800" alt="Studio Podcast — 1 (demo)" loading="lazy"><figcaption class="cap">Studio Podcast</figcaption></figure>
-      <figure class="gitem rev"><img src="https://picsum.photos/seed/4v4/640/800" alt="Studio Podcast — 2 (demo)" loading="lazy"><figcaption class="cap">Studio Podcast</figcaption></figure>
-      <figure class="gitem rev"><img src="https://picsum.photos/seed/4v6/640/800" alt="Studio Podcast — 3 (demo)" loading="lazy"><figcaption class="cap">Studio Podcast</figcaption></figure>
-      <figure class="gitem rev"><img src="https://picsum.photos/seed/4v8/640/800" alt="Studio Podcast — 4 (demo)" loading="lazy"><figcaption class="cap">Studio Podcast</figcaption></figure>
+      <figure class="gitem rev"><img src="poze/podcast-01.jpg" alt="Studio Podcast — portret în fotoliul de piele, sub panourile acustice iluminate" loading="lazy"><figcaption class="cap">Studio Podcast</figcaption></figure>
+      <figure class="gitem rev"><img src="poze/podcast-02.jpg" alt="Studio Podcast — cadru editorial în fotoliu, cu lampa-disc în fundal" loading="lazy"><figcaption class="cap">Studio Podcast</figcaption></figure>
+      <figure class="gitem rev"><img src="poze/podcast-03.jpg" alt="Studio Podcast — portret lângă lampa-disc și panourile acustice" loading="lazy"><figcaption class="cap">Studio Podcast</figcaption></figure>
+      <figure class="gitem rev"><img src="poze/podcast-04.jpg" alt="Studio Podcast — portret în fața peretelui cu panouri acustice" loading="lazy"><figcaption class="cap">Studio Podcast</figcaption></figure>
     </div>
   </div>
 </section>

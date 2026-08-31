@@ -243,7 +243,6 @@ footer p{color:#555;font-size:.75rem}
   .nav-links li{width:100%;text-align:center}
   .nav-links a{display:block;padding:17px 0;border-top:1px solid var(--line)}
   .nav-cta{display:none}
-  .grid{grid-template-columns:1fr}
   .hero .stats{flex-direction:column;width:100%;max-width:340px}
   .hero .stats div+div{border-left:none;border-top:1px solid var(--line)}
   .slots{grid-template-columns:repeat(3,1fr)}
@@ -264,8 +263,10 @@ footer p{color:#555;font-size:.75rem}
 .statbar div+div{border-left:1px solid var(--line)}
 .statbar b{display:block;font-size:1.3rem;font-weight:900}
 .statbar span{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
-.space-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.space-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;grid-auto-flow:dense}
 .space-grid .gitem{aspect-ratio:3/4}
+/* Poză orizontală: ocupă două coloane, la aceeași înălțime cu una verticală de alături. */
+.space-grid .gitem.wide{grid-column:span 2;aspect-ratio:3/2}
 /* Slot fără poză: apare cât timp fișierul din src nu există.
    Pui fișierul în poze/ cu numele din comentariul HTML și slotul devine poză, fără alte modificări. */
 .gitem.slot-gol{background:var(--bg2);border:1px dashed var(--line);cursor:default}
@@ -302,7 +303,8 @@ footer p{color:#555;font-size:.75rem}
 .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:54px}
 .shots .gitem{aspect-ratio:4/3}
 @media(max-width:900px){
-  .space-grid{grid-template-columns:1fr}
+  .space-grid{grid-template-columns:1fr 1fr}
+  .space-grid .gitem.wide{grid-column:span 2}
   .feat{grid-template-columns:1fr}
   .statbar div{padding:12px 18px}
   .dot-grid{grid-template-columns:1fr 1fr}
@@ -310,5 +312,8 @@ footer p{color:#555;font-size:.75rem}
 }
 @media(max-width:640px){
   .room .btns{grid-template-columns:1fr}
-  .dot-grid,.shots{grid-template-columns:1fr}
+  .dot-grid{grid-template-columns:1fr}
+  /* Pe telefon pozele rămân câte două pe rând; cele orizontale țin rândul întreg. */
+  .grid,.space-grid,.shots{grid-template-columns:1fr 1fr;gap:10px}
+  .space-grid .gitem.wide{grid-column:span 2}
 }
